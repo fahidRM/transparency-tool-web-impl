@@ -1,0 +1,9 @@
+# Editor & OS folders
+.DS_Strore/
+.idea/
+
+# dependencies
+node_modules/
+
+# package lock file
+package-lock.json
