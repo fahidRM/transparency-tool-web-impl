@@ -1,0 +1,37 @@
+{
+  "name": "transparency-tool",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "author": "Fahid Mohammed",
+  "license": "",
+  "main": "server/app.js",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fahidRM/transparency-tool-web-impl.git"
+  },
+  "keywords": [
+    "agent-based-modelling",
+    "agents",
+    "intelligent-agents",
+    "intelligent-systems",
+    "multi-agent",
+    "multi-agent-systems",
+    "transparency",
+    "transparency-tool",
+    "university-of-bath"
+  ],
+  "bugs": {
+    "url": "https://github.com/fahidRM/transparency-tool-web-impl/issues"
+  }
+}
