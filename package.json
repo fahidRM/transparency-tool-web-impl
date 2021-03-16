@@ -1,9 +1,10 @@
 {
   "name": "transparency-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "A transparency tool for Intelligent Agents",
   "homepage": "",
   "author": "Fahid Mohammed",
+  "email": "fahid.r.mohammed@bath.edu",
   "license": "",
   "main": "server/app.js",
   "dependencies": {

@@ -1,0 +1,119 @@
+<div class="whole-screen" ng-init="ctrl.init()">
+    <nav class="navbar navbar-expand-lg bg-info">
+        <div class="container">
+            <a class="navbar-brand"><b>Agent Debugger</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- li class="nav-item active">
+                        <a class="nav-link"
+                           ng-click="ctrl.nextStep()">
+                            Step Through
+                            </span></a>
+                    </li -->
+                    <li class="nav-item " ng-class="{'active' : ctrl.isDebugging }">
+                        <a class="nav-link"
+                           ng-click="ctrl.toggleDebugging()">
+                            {{ ctrl.isDebugging ? "Stop Debugger" : "Start Debugger"}}
+                            </span></a>
+                    </li>
+                    <li class="nav-item" ng-class="{'active' : ctrl.autoscroll}">
+                        <a class="nav-link "
+                           ng-disabled="!ctrl.isDebugging"
+                           ng-click="ctrl.toggleAutoscroll()"
+                        >{{ ctrl.autoscroll ? "Disable Autoscroll" : "Enable Autoscroll"}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="row container-x">
+        <div class="col-sm-3 padded-bar sidebar ">
+            <br>
+            <h4>Belief Browser</h4>
+
+            <!-- For debugging....
+            <button ng-click="ctrl.mimicAction()">Action</button>
+            <button ng-click="ctrl.mimicPlanTrace()">Plan T</button>
+            <button ng-click="ctrl.mimicPlanSelection()">Plan S</button>
+            -->
+
+            <div class="vertical-scroll side-scroll">
+                <br>
+                <!-- redo later -->
+                <!--
+                     ng-repeat="belief in ctrl.getCurrentBB()"
+                      ng-class="{'badge-danger' : belief.is_deleted, 'badge-info' :  ! belief.is_deleted}"
+                 -->
+                <div  ng-repeat="belief in ctrl.cbb">
+                    <span class ="badge normalised-text badge-info">
+                        {{ belief.value }} <hr>{{ belief.source }}</span>
+                </div>
+
+
+                <b>Recently Deleted</b>
+                <div ng-if="ctrl.cbbr.length >0">
+                    <div  ng-repeat="belief in ctrl.cbbr">
+                    <span class ="badge normalised-text badge-danger">
+                        {{ belief.value }} <hr>{{ belief.source }}</span>
+                    </div>
+                </div>
+
+                <div ng-if="ctrl.cbbr.length == 0" >
+                    <span>N/A</span>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="col-sm-9 padded-bar">
+            <div class ="info-bar">
+                <p>
+                    Notes:<br>
+                        - Click on a node to see the belief-base at that point.<br>
+                        - Hover over a node for context information.<br>
+                        - Colour code:<br>
+                    <svg height="35" width="270">
+                        <circle cx="30" cy="10" r="10" stroke="#16a085" stroke-width="1" fill="#16a085" />
+                        <text x="60" y="15" fill="#16a085">Traversed / Viable Path</text>
+                    </svg>
+                    <svg height="35" width="200">
+                        <circle cx="10" cy="10" r="10" stroke="#e74c3c" stroke-width="1" fill="#e74c3c" />
+                        <text x="40" y="15" fill="#e74c3c">Non-Viable path</text>
+                    </svg>
+                    <svg height="35" width="200">
+                        <circle cx="10" cy="10" r="10" stroke="#f8c291" stroke-width="1" fill="#f8c291" />
+                        <text x="40" y="15" fill="#f8c291">Failed Action</text>
+                    </svg>
+
+
+                </p>
+                <p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select Agent [ visualising: {{ctrl.agents.current || "N/A"}} ]
+                        </button>
+                        <div class="dropdown-menu"
+                             aria-labelledby="dropdownMenuButton">
+                            <a href
+                               class="dropdown-item"
+                               ng-repeat="agent in ctrl.agents.all"
+                               ng-click="ctrl.selectAgent(agent)">{{agent}}</a>
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <div id="visualisation_board" class="scroll-fix">
+            </div>
+        </div>
+    </div>
+</div>
