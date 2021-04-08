@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="131px" height="121px" viewBox="0 0 131 121" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Rectangle</title>
-    <a href = "www.google.com">
+   
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+         <a href = "www.google.com">
         <rect id="Rectangle" stroke="#E57979" fill="#F19F3F" x="0.5" y="0.5" width="130" height="120"></rect>
+               </a>
     </g>
-    </a>
+  
 </svg>
